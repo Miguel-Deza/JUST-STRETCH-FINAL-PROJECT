@@ -6,36 +6,44 @@ let customElem = document.getElementById("custom");
 let selectMenuOpen = true;
 let customMenuOpen = false;
 
+let isPaused = false;
+
 let track;
 let audio = new Audio("songs/background.mp3");
 
 let songs = {
-    "Airship Serenity":[track_airship,"songs/airship.mp3"],
+    "Airship Serenity - Facil":[track_airship,"songs/airship.mp3"],
     
-    "Voxel Revolution":[track_voxel,"songs/voxel-revolution.mp3"],
-    "Cold Funk":[track_cold,"songs/cold-funk.mp3"],
-    "Welcome to the Show":[track_welcome,"songs/welcome-to-the-show.mp3"],
-    "Desert of Lost Souls":[track_desert,"songs/desert-of-lost-souls.mp3"]
+    "Voxel Revolution - Facil":[track_voxel,"songs/voxel-revolution.mp3"],
+    "Cold Funk - Intermedio":[track_cold,"songs/cold-funk.mp3"],
+    "Welcome to the Show - Intermedio":[track_welcome,"songs/welcome-to-the-show.mp3"],
+    "Desert of Lost Souls - Difícil":[track_desert,"songs/desert-of-lost-souls.mp3"]
 }
 
 for (let song_name of Object.keys(songs)) {
     document.getElementById("song-button-container").innerHTML += `
     <button onclick="selectSong('${song_name}')">${song_name}</button>`;
 }
-// document.getElementById("song-button-container").innerHTML += `
-//     <button onclick="openCustom()" style="border:4px solid #62b6e7;background-color:#1a5f7a">Custom...</button>`;
+
 
 function selectSong(song){
     console.log(playing);
-    if (!playing && loaded){
+    
+    if (!playing && loaded) {
         track = songs[song][0];
-        // selectElem.style.display = "none";
         selectElem.style.top = "-100%";
         selectMenuOpen = false;
-        audio.pause();
-        document.getElementById('mainContainer').classList.remove('opaque');
-        audio = new Audio(songs[song][1]);
-        start();        
+        if (!isPaused) {
+            audio.pause();
+            document.getElementById('mainContainer').classList.remove('opaque');
+            audio = new Audio(songs[song][1]);
+            start();
+        } else {
+            audio.src = songs[song][1];
+            audio.play();
+            document.getElementById('mainContainer').classList.remove('opaque');
+            start();
+        }
     }
 }
 
@@ -44,7 +52,6 @@ function refresh(){
 }
 
 function reset(){
-    // selectElem.style.display = "block";
     selectElem.style.top = "50%";
     document.getElementById('mainContainer').classList.add('opaque');
     selectMenuOpen = true;
@@ -105,6 +112,8 @@ function closeMenu(){
     settingsElem.style.top = "-100%";
     customElem.style.top = "-100%";
 }
+
+//ALL IS CUSTOM 👇
 // custom track
 
 function openCustom(){

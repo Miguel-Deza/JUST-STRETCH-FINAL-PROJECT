@@ -1,4 +1,26 @@
 /* LAYOUT */
+#progress-bar {
+    width: 0;
+    height: 50px;
+    background-color: #4CAF50; /* Green color */
+}
+
+#progress-text{
+    font-size: 80px;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+}
+
+#progress-container{
+    padding-bottom: 50px;
+}
+
+#style-last-score{
+    font-size: 30px;
+    color: white;
+}
+
 html,
 body {
 	margin: 0;
@@ -36,6 +58,12 @@ body {
 	text-shadow: 0 0 10px white;
 }
 
+#bienvenido{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
 
 
 #left_container {
@@ -198,12 +226,12 @@ body {
 /* TEXT */
 
 h1 {
-	font-size: 5rem;
-	color: #1683c2;
+	font-size: 4rem;
+	color: #9ad9fd;
 }
 
 h2 {
-	font-size: 20pt;
+	font-size: 30pt;
 	color: #57bbf5;
 }
 

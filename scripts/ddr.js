@@ -1,4 +1,11 @@
 let reducedGraphics = false;
+let gamePaused = false;
+let pauseTime = 0;
+
+let pauseButton = document.getElementById("pause-button");
+const progressBar = document.getElementById("progress-bar");
+const progressText = document.getElementById("progress-text");
+
 
 class Arrow {
 	constructor(key) {
@@ -68,6 +75,7 @@ class Arrow {
 				}
 			}
 			document.getElementById("score").innerHTML = score;
+            document.getElementById("last-score").innerHTML = score;
 			document.getElementById("arrow_parent").removeChild(this.elem);
 		}, this.time * 1000);
 	}
@@ -167,6 +175,8 @@ async function play() {
 	let start_time = Date.now(); // used to account for lag
 	let accumulated_time = 0;
 	let current_time;
+    let totalDuration = track.reduce((total, note) => total + note[1], 0);
+
 	for (let note of track) {
 		// sleep
 		current_time = Date.now();
@@ -174,6 +184,11 @@ async function play() {
 		let delay = note[1] - drift;
 		accumulated_time += note[1];
 		// console.log(drift);
+        // Update progress bar
+        let progress = (accumulated_time / totalDuration) * 100;
+        progressBar.style.width = `${progress}%`;
+        progressText.innerHTML = `${Math.round(progress)}%`;
+
 		await new Promise((r) => setTimeout(r, delay));
 		// create arrow
 		new Arrow(note[0]);
@@ -182,6 +197,8 @@ async function play() {
 	await new Promise((r) => setTimeout(r, 8000));
 	reset();
 }
+
+ 
 
 async function start() {
 	score = 0;

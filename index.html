@@ -27,10 +27,18 @@
             <br><br>
             <!-- Joselin -->
 
-            <img src="./assets/inst.png" alt="">
+            <div id="progress-container">
+                <p>Porcentaje de la canción</p>
+                <div id="progress-bar"></div>
+                <div id="progress-text">0%</div>
+            </div>
 
             <button id="pausar" onclick="refresh();"> Cambiar de canción </button>
+            <button id="pause-button">Pausa</button>
             <!-- <button onclick='openSettings()'>settings</button> -->
+
+            
+
             <br><br>
             <!-- <p style="color:rgb(59, 101, 150)">COMPUTER SCIENCE - UNSA - IHC</p> -->
         </div>
@@ -58,9 +66,12 @@
     <!-- Song selection -->
     <div id=select>
         <!-- <div class="close-button" onclick="closeMenu()">X</div> -->
-        <h1>Bienvenido!</h1>
+        <h1 id="bienvenido">Bienvenido!</h1>
+        <p id="style-last-score">Ultimo Puntaje final logrado: <span id=last-score style="color:white; font-size: 60px;">0</span></p>
+        
         <center>
-        <img src="./assets/tutorial2.gif" alt="">
+        <img src="./assets/tutorial2.gif" width="500" alt="">
+        <img src="./assets/inst.png" width="150" height="342px" alt="">
         </center>
         <h2><img src="./assets/music.png" alt="" style="max-width: 35px; margin-right: 5px; vertical-align: middle;">Seleccione una canción:</h2>
             
