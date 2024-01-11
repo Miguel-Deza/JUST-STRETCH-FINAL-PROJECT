@@ -63,9 +63,9 @@ class Arrow {
 							score += 6 * multiplier;
 						} else {
 							new Message("Desacierto! 😭");
-							var audio = new Audio("../assets/wrong.mp3");
-                            audio.volume = 0.5;
-							audio.play();
+							// var audio = new Audio("../assets/wrong.mp3");
+                            // audio.volume = 0.5;
+							// audio.play();
 							// score -= 2;
 							// score = Math.max(0, score);
 							consecutive = 0;
