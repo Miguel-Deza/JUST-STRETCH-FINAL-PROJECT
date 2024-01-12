@@ -13,12 +13,12 @@ let track;
 let audio = new Audio("songs/background.mp3");
 
 let songs = {
-    "Airship Serenity - Facil":[track_airship,"songs/airship.mp3"],
+    "Airship Serenity":[track_airship,"songs/airship.mp3"],
     
-    "Voxel Revolution - Facil":[track_voxel,"songs/voxel-revolution.mp3"],
-    "Cold Funk - Intermedio":[track_cold,"songs/cold-funk.mp3"],
-    "Welcome to the Show - Intermedio":[track_welcome,"songs/welcome-to-the-show.mp3"],
-    "Desert of Lost Souls - Difícil":[track_desert,"songs/desert-of-lost-souls.mp3"]
+    "Voxel Revolution":[track_voxel,"songs/voxel-revolution.mp3"],
+    "Cold Funk":[track_cold,"songs/cold-funk.mp3"],
+    "Welcome to the Show":[track_welcome,"songs/welcome-to-the-show.mp3"],
+    "Desert of Lost Souls":[track_desert,"songs/desert-of-lost-souls.mp3"]
 }
 
 // for (let song_name of Object.keys(songs)) {
