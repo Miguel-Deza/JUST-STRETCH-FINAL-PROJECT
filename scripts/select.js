@@ -2,6 +2,7 @@
 let selectElem = document.getElementById("select");
 let settingsElem = document.getElementById("settings");
 let customElem = document.getElementById("custom");
+let songElem = document.getElementById("song-button-container")
 
 let selectMenuOpen = true;
 let customMenuOpen = false;
@@ -20,10 +21,38 @@ let songs = {
     "Desert of Lost Souls - Difícil":[track_desert,"songs/desert-of-lost-souls.mp3"]
 }
 
+// for (let song_name of Object.keys(songs)) {
+//     document.getElementById("song-button-container").innerHTML += `
+//     <button onclick="selectSong('${song_name}')">${song_name}</button>`;
+// }
+
+const levels = [[], [], []];
+
+let levelIndex = 0;
 for (let song_name of Object.keys(songs)) {
-    document.getElementById("song-button-container").innerHTML += `
-    <button onclick="selectSong('${song_name}')">${song_name}</button>`;
+    levels[levelIndex].push(song_name);
+    levelIndex = (levelIndex + 1) % 3;
 }
+
+levels.forEach((level, index) => {
+    const levelDiv = document.createElement("div");
+    levelDiv.classList.add(`level${index + 1}`);
+
+    const header = document.createElement("h2");
+    header.textContent = `Nivel ${index + 1}`;
+    levelDiv.appendChild(header);
+
+    level.forEach(song_name => {
+        const button = document.createElement("button");
+        button.textContent = song_name;
+        button.onclick = () => selectSong(song_name);
+        button.classList.add(`column${index + 1}`);
+        levelDiv.appendChild(button);
+    });
+
+    songElem.appendChild(levelDiv);
+});
+
 
 
 function selectSong(song){
@@ -36,6 +65,7 @@ function selectSong(song){
         if (!isPaused) {
             audio.pause();
             document.getElementById('mainContainer').classList.remove('opaque');
+            document.getElementById("song").innerHTML = song;
             audio = new Audio(songs[song][1]);
             start();
         } else {

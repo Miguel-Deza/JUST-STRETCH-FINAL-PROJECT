@@ -360,3 +360,75 @@ input[type="range"] {
 	background-size: cover;
 	
 }
+
+/* Botones de las canciones*/
+#song-button-container {
+	display: flex;
+	justify-content: space-around; /* Espaciado entre niveles */
+}
+
+.level1{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.level1 h2 {
+	font-size: 20pt;
+	color: yellow;
+}
+
+.level2{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.level2 h2 {
+	font-size: 20pt;
+	color: greenyellow;
+}
+
+.level3{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.level3 h2 {
+	font-size: 20pt;
+	color: orangered;
+}
+
+#song-button-container button {
+	margin: 5px;
+	padding: 10px;
+	cursor: pointer;
+}
+
+#song-button-container button.column1  {
+	background-color: #0f3c4e;
+	color: white;
+	border: 4px solid yellow;
+}
+#song-button-container button.column1:hover {
+	box-shadow: 0 4px 16px yellow;
+	transition: all 0.2s ease;
+}
+
+#song-button-container button.column2  {
+	background-color: #0f3c4e;
+	color: white;
+	border: 4px solid greenyellow;
+}
+#song-button-container button.column2:hover {
+	box-shadow: 0 4px 16px greenyellow;
+	transition: all 0.2s ease;
+}
+
+#song-button-container button.column3 {
+	background-color: #0f3c4e;
+	color: white;
+	border: 4px solid orangered;
+}
+#song-button-container button.column3:hover {
+	box-shadow: 0 4px 16px orangered;
+	transition: all 0.2s ease;
+}

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>JUST STRETCH</title>
   <link rel=stylesheet href=style.css>
-  <link rel=icon href=assets/favicon.png type="image/png">
+  <link rel=icon href=assets/logo.png type="image/png">
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
@@ -54,7 +54,7 @@
         <!-- Video output -->
         
         <div id="output_wrapper_wrapper">
-            
+            <h2><img src="./assets/music.png" style="max-width: 45px; margin-right: 5px; vertical-align: middle;"><span id=song style="color:white"></span></h2>
             <div id="output_wrapper">
                 <canvas id="output_canvas" width=1280 height=720></canvas>
             </div>
@@ -75,11 +75,9 @@
         </center>
         <h2><img src="./assets/music.png" alt="" style="max-width: 35px; margin-right: 5px; vertical-align: middle;">Seleccione una canción:</h2>
             
+    
         
-        <!-- <h2 style="color:white">Gira los 2 brazos en la dirección de las flechas.</h2> -->
-        <!-- <img src="./assets/two.png" alt=""> -->
-        
-        <div style="display:contents" id="song-button-container">
+        <div id="song-button-container">
         </div>
     </div>
 
